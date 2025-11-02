@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
     end
   end,
 })
+
 --[[
     If you don't know anything about Lua, I recommend taking some time to read through
     a guide. One possible example which will only take 10-15 minutes:
@@ -767,17 +768,17 @@ require('lazy').setup({
       },
 
       appearance = {
-        -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-        -- Adjusts spacing to ensure icons are aligned
         nerd_font_variant = 'mono',
       },
-
+      -- Non-LLM inline autocomplete
       completion = {
-        -- By default, you may press `<c-space>` to show the documentation.
-        -- Optionally, set `auto_show = true` to show the documentation after a delay.
+        ghost_text = {
+          enabled = false,
+          show_with_menu = false,
+        },
+        menu = { auto_show = false },
         documentation = { auto_show = false, auto_show_delay_ms = 500 },
       },
-
       sources = {
         default = { 'lsp', 'path', 'snippets', 'lazydev' },
         providers = {
@@ -812,7 +813,7 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: missing-fields
       require('tokyonight').setup {
         styles = {
-          comments = { italic = false }, -- Disable italics in comments
+          comments = { italic = true }, -- Enable italics in comments
         },
       }
       -- Load the colorscheme here.
@@ -908,7 +909,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
