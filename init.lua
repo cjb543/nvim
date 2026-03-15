@@ -597,9 +597,7 @@ require('lazy').setup({
       --
       local servers = {
         clangd = {},
-        -- gopls = {},
         pyright = {},
-        rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -939,4 +937,5 @@ vim.opt.shiftwidth = 4
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
-require 'hello_world'
+-- Broadcom HLASM LSP.
+require 'custom.hlasm'
